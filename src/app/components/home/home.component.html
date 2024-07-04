@@ -1,0 +1,20 @@
+<p>home works!</p>
+<div class="container-grid">
+    <div class="row">
+        <div *ngFor="let pais of paises" class="col-3 d-flex flex-row justify-content-center mb-5">
+            <div class="card" style="width: 18rem;">
+                <img src="{{pais.imagen}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{pais.nombre}}</h5>
+                  <div class="card-text">
+                    <p>Habitantes: {{pais.habitantes}}</p>
+                    <p>Idiomas: {{pais.idioma}}</p>
+                    <p>Region: {{pais.region}}</p>
+                  </div>
+                  <a href="#" class="btn btn-primary">Mas Detalles</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<app-about [paises]="paises"></app-about>
