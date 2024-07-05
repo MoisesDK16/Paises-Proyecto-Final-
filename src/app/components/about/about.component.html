@@ -1,2 +1,39 @@
 <p>about works!</p>
 
+<div class="d-flex justify-content-center mt-3 mb-3">
+    <a [routerLink]="['/home']" class="btn btn-primary">Regresar A Paises</a>
+</div>
+
+<div *ngIf="pais" class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-4 d-flex justify-content-center">
+      <img
+        width="400rem"
+        class="card-img-top"
+        height="300rem"
+        src="{{ pais.imagen }}"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-4 justify-content-center">
+    <div class="col-4 text-center mb-2">
+      <h2 id="titulo_pais">{{ pais.nombre }}</h2>
+    </div>
+  </div>
+  <div class="row mt-2 justify-content-center">
+    <div class="col-4" style="margin-left: 12rem;">
+        <p><strong>Región: </strong>{{ pais.region }}</p>
+        <p><strong>Capital: </strong>{{ pais.capital }}</p>
+        <p><strong>Habitantes: </strong>{{ pais.habitantes }}</p>
+        <p><strong>Idioma: </strong>{{ pais.idioma }}</p>
+        <p *ngFor="let mon of pais.moneda">
+            <strong>Moneda: </strong>{{ mon.name }} / <strong>Simbolo: </strong>{{ mon.symbol}}
+          </p>
+        <p><strong>Subregión: </strong>{{ pais.subregion }}</p>
+        <a href="{{pais.ubicacion}}">Mostrar ubicacion</a>
+    </div>
+  </div>
+</div>
+
+

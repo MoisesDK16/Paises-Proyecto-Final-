@@ -1,20 +1,56 @@
-<p>home works!</p>
+<!-- <p>home works!</p>
+
+<div>
+  <form class="d-flex justify-content-center mb-5">
+   <input (keydown)="buscarXNombre($event)" style="width: 25rem; height: 3rem;" class="form-control me-sm-5" type="search" placeholder="Search">
+    <div style="padding-left: rem;">
+      <button id="buscador-navbar" style="height: 3rem;" class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </div>
+  </form>
+</div>
+
 <div class="container-grid">
     <div class="row">
         <div *ngFor="let pais of paises" class="col-3 d-flex flex-row justify-content-center mb-5">
             <div class="card" style="width: 18rem;">
-                <img src="{{pais.imagen}}" class="card-img-top" alt="...">
+                <img src="{{pais.imagen}}" style="height: 10rem;" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{pais.nombre}}</h5>
                   <div class="card-text">
-                    <p>Habitantes: {{pais.habitantes}}</p>
-                    <p>Idiomas: {{pais.idioma}}</p>
                     <p>Region: {{pais.region}}</p>
                   </div>
-                  <a href="#" class="btn btn-primary">Mas Detalles</a>
+                  <a style="margin-inline: 25%; width: 8rem;" class="btn btn-primary" [routerLink]="['/about', pais.codigo]">Más Detalles</a>
                 </div>
               </div>
         </div>
     </div>
+</div> -->
+
+<p>home works!</p>
+
+<div>
+  <div class="d-flex justify-content-center mb-5">
+    <input (keyup)="buscarXNombre()" [(ngModel)]="nombre" style="width: 25rem; height: 3rem;" class="form-control me-sm-5" type="search" placeholder="Search">
+    <div>
+      <button (click)="buscarXNombre()" id="buscador-navbar" style="height: 3rem;" class="btn btn-secondary my-2 my-sm-0" type="submit">
+        <i style="font-size: 1.5rem;" class="bi bi-search"></i>
+      </button>
+    </div>
+  </div>
+  <div class="container-grid">
+    <div class="row">
+      <div *ngFor="let pais of paises" class="col-3 d-flex flex-row justify-content-center mb-5">
+        <div class="card" style="width: 18rem;">
+          <img [src]="pais.imagen" style="height: 10rem;" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ pais.nombre }}</h5>
+            <div class="card-text">
+              <p>Region: {{ pais.region }}</p>
+            </div>
+            <a style="margin-inline: 25%; width: 8rem;" class="btn btn-primary" [routerLink]="['/about', pais.codigo]">Más Detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<app-about [paises]="paises"></app-about>
